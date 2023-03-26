@@ -1,0 +1,29 @@
+{% extends 'p_messages/base.html' %}
+
+{% block title %}Community Messages{% endblock %}
+
+{% block content %}
+  <h1>Community Messages</h1>
+  {% if messages %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Message</th>
+          <th>Timestamp</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for message in messages %}
+          <tr>
+            <td>{{ message.user }}</td>
+            <td>{{ message.message }}</td>
+            <td>{{ message.timestamp|date:"F j, Y, g:i a" }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No community messages yet.</p>
+  {% endif %}
+{% endblock %}

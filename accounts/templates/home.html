@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+  <h1>Welcome to the COMMUNITY</h1>
+
+  {% if user.is_authenticated %}
+
+  <h3>This is a demo website created by Kris. <br>
+  This works like Twitter.</h3>
+  
+    <p>You are logged in as {{ user.username }}. Go to <a href="{% url 'p_messages:post_message' %}">post a message</a>.</p>
+  {% else %}
+
+  <h3>This is a demo website created by Kris. <br>
+  This works like Twitter.</h3>
+
+    <p>You are not logged in. Please <a href="{% url 'login' %}">log in</a> or <a href="{% url 'signup' %}">sign up</a>.</p>
+  {% endif %}
+
+  
+
+  
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'p_messages/base.html' %}
+
+{% block title %}Post a Message{% endblock %}
+
+{% block content %}
+  <h1>Post a Community Message</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ community_form.as_p }}
+    <button type="submit">Post</button>
+  </form>
+{% endblock %}
